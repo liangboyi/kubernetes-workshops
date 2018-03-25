@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ReplicationController
+metadata: 
+  name: "hello-rc-v-1.1"
+spec:
+  replicas: 1
+  selector:
+    app: hello-world-v
+    version: "1.1"
+  template:
+    metadata:
+      labels:
+        app: hello-world-v
+        version: "1.1"
+    spec:
+      containers:
+      - name: hello-pod
+        image: boyi/test-demo:latest
+        env:
+        - name: PRJ_VERSION
+          value: "v1.1"
+        - name: PRJ_PORT
+          value: "8989"
+        ports:
+        - containerPort: 8989
