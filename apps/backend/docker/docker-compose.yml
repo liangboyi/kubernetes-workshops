@@ -1,0 +1,11 @@
+backend:
+  image: boyi/backend
+  ports:
+    - "8787:8787"
+  environment:
+    - PRJ_PORT=8787
+    - DB_NAME=db_example
+    - DB_IP=10.34.54.60
+    - DB_PORT=3306
+    - DB_USERNAME=springuser
+    - DB_PASSWORD=123456

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<script>
+    function inputEmail(username) {
+        document.getElementById("email").value = username.value+"@test.com";
+    }
+</script>
+<body>
+<form th:action="@{/addUser}" method="post">
+<table>
+    <thead>
+        <tr>
+            <td colspan="2">Add User</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>UserName</td>
+            <td><input name="userName" onkeydown="inputEmail(this)"/></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input name="email"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" th:value="#{form.submit}" /></td>
+        </tr>
+    </tbody>
+</table>
+</form>
+</body>
+</html>

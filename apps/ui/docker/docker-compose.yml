@@ -1,0 +1,11 @@
+backend:
+  image: boyi/app-ui
+  ports:
+    - "8686:8686"
+  environment:
+    - PRJ_PORT=8686
+    #docker use ip
+    - SERVICE_NAME=127.0.0.1
+    #kubernetes use service-name or ingress address
+    #- SERVICE_NAME=backend-service
+    - SERVICE_PORT=8787
