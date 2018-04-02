@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend-docker
+        image: boyi/app-backend
+        env:
+        - name: PRJ_PORT
+          value: "8989"
+        - name: DB_IP
+          value: "hello-mysql"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_NAME
+          value: db_example
+        - name: DB_USERNAME
+          value: "springuser"
+        - name: DB_PASSWORD
+          value: "123456"
+        ports:
+        - containerPort: 8989
+          protocol: TCP

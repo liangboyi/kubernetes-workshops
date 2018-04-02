@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-mysql
+  labels:
+    app: hello-world
+spec:
+  type: NodePort
+  ports:
+  - port: 3306
+    nodePort: 30001
+    protocol: TCP
+  selector:
+    db: mysql

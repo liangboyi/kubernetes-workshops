@@ -1,5 +1,5 @@
 backend:
-  image: boyi/backend
+  image: boyi/app-backend
   ports:
     - "8787:8787"
   environment:

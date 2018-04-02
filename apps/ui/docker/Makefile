@@ -1,6 +1,6 @@
 all: push clean
 
-IMAGE_NAME=${IMAGE_BASE_URL}/backend
+IMAGE_NAME=${IMAGE_BASE_URL}/app-ui
 
 addconf:
 	cp ../target/ui*.jar ../docker/ui.jar
@@ -13,4 +13,4 @@ push: build
 
 clean:
 	rm -rf ../target
-	rm -rf backend.jar
+	rm -rf ui.jar

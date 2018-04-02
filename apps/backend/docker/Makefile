@@ -1,6 +1,6 @@
 all: push clean
 
-IMAGE_NAME=${IMAGE_BASE_URL}/backend
+IMAGE_NAME=${IMAGE_BASE_URL}/app-backend
 
 addconf:
 	cp ../target/backend*.jar ../docker/backend.jar

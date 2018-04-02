@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    db: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      db: mysql
+  template:
+    metadata:
+      labels:
+        db: mysql
+    spec:
+      containers:
+      - name: mysql-container
+        image: harbor.pks.pcfdemo.com/boyi/mysql:5.6
+        env:
+        - name: MYSQL_USER
+          value: springuser
+        - name: MYSQL_PASSWORD
+          value: "123456"
+        - name: MYSQL_DATABASE
+          value: db_example
+        - name: MYSQL_RANDOM_ROOT_PASSWORD
+          value: "true"
+        ports:
+        - containerPort: 3306
+          protocol: TCP
